@@ -14,6 +14,20 @@
           <label for="image" class="form-label">Image Url</label>
           <input type="text" name="image" id="image" class="form-control" ngModel required>
         </div>
+        <div class="mb-3" *ngIf="isForTag">
+          <div class="form-check">
+            <input class="form-check-input" name="forChannel" type="checkbox" ngModel checked>
+            <label class="form-check-label" for="forChannel">
+              For Channel
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" name="forGame" type="checkbox" ngModel checked>
+            <label class="form-check-label" for="forGame">
+              For Game
+            </label>
+          </div>
+        </div>
         <button type="submit" class="btn btn-success">
           Pridėti
         </button>

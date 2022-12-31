@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Attribute } from '../models/Attribute';
+import { Tag } from '../models/Tag';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,10 @@ export class TagService {
   constructor(private http: HttpClient) { }
 
   public getTags() {
-    return this.http.get<Attribute[]>(this.url)
+    return this.http.get<Tag[]>(this.url)
   }
   
   public getTag(tagId: number) {
-    return this.http.get<Attribute>(`${this.url}?id=${tagId}`)
+    return this.http.get<Tag>(`${this.url}?id=${tagId}`)
   }
 }

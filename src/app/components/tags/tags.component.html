@@ -14,6 +14,10 @@
         </h3>
         <div class="card-body">
           <img src={{tag.image}} width="100%"/>
+          <div>
+            <p *ngIf="tag.forChannel">For Channel</p>
+            <p *ngIf="tag.forGame">For Game</p>
+          </div>
         </div>
       </div>
     </div>

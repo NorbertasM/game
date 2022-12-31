@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Attribute } from 'src/app/models/Attribute';
+import { Tag } from 'src/app/models/Tag';
 import { TagService } from 'src/app/services/tag.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { TagService } from 'src/app/services/tag.service';
   styleUrls: ['./tags.component.css']
 })
 export class TagsComponent implements OnInit {
-  public tags: Attribute[] = []
+  public tags: Tag[] = []
 
   constructor(
     private router: Router,
