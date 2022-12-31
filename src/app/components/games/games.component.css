@@ -1,0 +1,4 @@
+.custom-card:hover {
+  cursor: pointer;
+  box-shadow: 0.5px 0.5px 0.5px 1px lightgray;
+}

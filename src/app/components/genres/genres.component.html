@@ -1,0 +1,21 @@
+<div class="row">
+  <div *ngIf="isLoggedIn" class="col-md-4 mb-3">
+    <div class="card custom-card" style="height: 300px; padding-top: 100px;  text-align: center;"  (click)="onAddNewGenre()">
+      <div>
+        <img src='https://www.freepnglogos.com/uploads/plus-icon/plus-icon-plus-svg-png-icon-download-1.png' style="width: 100px; height: 100px; margin: auto;"/>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 mb-3" *ngFor="let genre of genres">
+    <div class="card custom-card" style="min-height: 300px; height: fit-content;" (click)="onClick(genre.id)">
+      <div class="card-header" style="background-color: white;">
+        <h3>
+          {{ genre.name }}
+        </h3>
+      </div>
+      <div style="width: fit-content;">
+        <img src={{genre.image}} style="max-width: 100%; border-radius: 5px;"/>
+      </div>
+    </div>
+  </div>
+</div>

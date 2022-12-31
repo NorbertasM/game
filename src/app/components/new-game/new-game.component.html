@@ -1,0 +1,49 @@
+<div class="col-md-6 offset-md-3 mt-5">
+  <div class="card">
+    <div class="card-header">New game</div>
+    <div class="div card-body">
+      <div class="alert alert-danger" *ngIf="error !== ''">
+        {{ error }}
+      </div>
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" name="name" id="name" class="form-control" ngModel required>
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Image Url</label>
+          <input type="text" name="image" id="image" class="form-control" ngModel required>
+        </div>
+        <div class="mb-3 border-bottom">
+          <div class="row">
+            <label for="" class="form-label">Genres</label>
+            <div class="col-md-auto" *ngFor="let genre of genres">
+              <div class="form-check">
+                <input class="form-check-input" name="genre" type="checkbox" (change)="onGenreCheck($event, genre.id)">
+                <label class="form-check-label" for="genre">
+                  {{genre.name}}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3 border-bottom">
+          <div class="row">
+            <label for="" class="form-label">Tags</label>
+            <div class="col-md-auto" *ngFor="let tag of tags">
+              <div class="form-check">
+                <input class="form-check-input" name="tag" type="checkbox" (change)="onTagCheck($event, tag.id)">
+                <label class="form-check-label" for="tag">
+                  {{tag.name}}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">
+          Pridėti
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

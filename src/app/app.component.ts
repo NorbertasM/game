@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from './services/login.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'game';
+  
+  constructor(private login: LoginService) {
+    this.login.autoLogin()
+  }
 }

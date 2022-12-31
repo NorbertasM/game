@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-4 mb-3">
+    <div class="card custom-card" style="min-height: 300px; padding-top: 100px;  text-align: center;" (click)="addNewTag()">
+        <div class="card-body">
+          <img src='https://www.freepnglogos.com/uploads/plus-icon/plus-icon-plus-svg-png-icon-download-1.png' style="width: 100px; height: 100px; margin: auto;"/>
+        </div>
+    </div>
+  </div>
+  <div class="col-md-4 mb-3" *ngFor="let tag of tags">
+    <div class="card custom-card" style="min-height: 300px;" (click)="onClick(tag.id)">
+      <div class="card-header">
+        <h3>
+          {{ tag.name }}
+        </h3>
+        <div class="card-body">
+          <img src={{tag.image}} width="100%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
