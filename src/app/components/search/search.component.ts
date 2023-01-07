@@ -14,6 +14,8 @@ import { SearchResult } from 'src/app/models/SearchResult';
 export class SearchComponent implements OnInit {
   public error: string | undefined
   public data: SearchResult | undefined
+  public tags: Record<number, Attribute[]> = []
+  public genres: Record<number, Attribute[]> = []
 
   constructor(
     private gameService: GameService,
@@ -34,7 +36,20 @@ export class SearchComponent implements OnInit {
     this.searchService.generalSearch(value).subscribe({
       next: (res) => {
         if (res) {
-          this.data = res
+          this.data = res       
+
+          res.games.map(item => {
+            this.gameService.getGameTag(item.id).subscribe(res => {
+              if (res) {
+                this.tags[item.id] = res
+              }
+            })
+            this.gameService.getGameGenre(item.id).subscribe(res => {
+              if (res) {
+                this.genres[item.id] = res
+              }
+            })
+          })
         }
       },
       error: (error) => {
