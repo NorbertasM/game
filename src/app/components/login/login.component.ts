@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
 
   public onSubmit(f: NgForm) {
-    const user = new AuthUser(f.value.email, f.value.password)
+    const user = new AuthUser(f.value.username, f.value.password)
 
       this.auth.login(user).subscribe({
         next: this.afterSuccessLogin,
