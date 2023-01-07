@@ -1,8 +1,8 @@
 <div class="row">
   <div *ngIf="!loading && (!games || games.length === 0)">Nėra duomenų</div>
   <div *ngIf="isLoggedIn" class="col-md-4 mb-3">
-    <div class="card custom-card" style="height: 300px; padding-top: 100px;  text-align: center;"  (click)="onAddNewGame()">
-        <div class="card-body">
+    <div class="card custom-card card-width" (click)="onAddNewGame()">
+        <div class="card-body plus-card-body">
           <div>
             <img src='https://www.freepnglogos.com/uploads/plus-icon/plus-icon-plus-svg-png-icon-download-1.png' style="width: 100px; height: 100px; margin: auto;"/>
           </div>
@@ -10,32 +10,30 @@
     </div>
   </div>
   <div class="col-md-4 mb-3" *ngFor="let game of games">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="text-center border-bottom">
-          {{ game.name }}
-        </h3>
-        <div class="card-body">
-          <div class="row justify-content-center">
-            <div class="col-auto border-bottom pb-2 mb-2" style="text-align: center;">
-              <img src={{game.image}} width="350px"/>
-            </div>
-            <div class="col mb-2">
-              <div class="border-bottom pb-2" *ngIf="genres?.[game.id] && genres[game.id].length > 0">
-                <h5>Genres</h5>
-                <div class="row">
-                  <div class="col-auto" *ngFor="let genre of genres[game.id]">
-                    <a class="link" [routerLink]="['/genre', genre.id]">{{ genre.name }}</a>
-                  </div>
-                </div>
+    <div class="card card-width">
+      <div class="card-image-container">
+        <img src={{game.image}} width="350px"/>
+      </div>
+      <div class="card-body card-body-container">
+        <div>
+          <h5 class="card-title">
+            {{ game.name }}
+          </h5>
+        </div>
+        <div class="row mt-1 border-top py-1">
+          <div class="border-bottom pb-2" *ngIf="genres?.[game.id] && genres[game.id].length > 0">
+            <h5>Genres</h5>
+            <div class="row">
+              <div class="col-auto" *ngFor="let genre of genres[game.id]">
+                <a class="link" [routerLink]="['/genre', genre.id]">{{ genre.name }}</a>
               </div>
-              <div *ngIf="tags?.[game.id] && tags[game.id].length > 0">
-                <h5>tags</h5>
-                <div class="row">
-                  <div class="col-auto" *ngFor="let tag of tags[game.id]">
-                    <a class="link" [routerLink]="['/tag', tag.id]">{{ tag.name }}</a>
-                  </div>
-                </div>
+            </div>
+          </div>
+          <div *ngIf="tags?.[game.id] && tags[game.id].length > 0">
+            <h5>Tags</h5>
+            <div class="row">
+              <div class="col-auto" *ngFor="let tag of tags[game.id]">
+                <a class="link" [routerLink]="['/tag', tag.id]">{{ tag.name }}</a>
               </div>
             </div>
           </div>

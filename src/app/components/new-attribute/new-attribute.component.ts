@@ -42,8 +42,14 @@ export class NewAttributeComponent implements OnInit {
   }
 
   public onSubmit(f: NgForm) {
-    const attribute = new NewAttribute(f.value.name, f.value.image, !!f.value.forGame, !!f.value.forChannel)
     const type = this.route.snapshot.params['type']
+    let attribute: NewAttribute | undefined
+
+    if (type === 'genre') {
+      attribute = new NewAttribute(f.value.name, f.value.image, f.value.forGame, f.value.forChannel)
+    } else {
+      attribute = new NewAttribute(f.value.name, f.value.image, !!f.value.forGame, !!f.value.forChannel)
+    }
 
     this.attribute.addAttribute(attribute, type).subscribe({
       error: this.afterError,

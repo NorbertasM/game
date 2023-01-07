@@ -2,3 +2,30 @@
   cursor: pointer;
   box-shadow: 0.5px 0.5px 0.5px 1px lightgray;
 }
+
+.crop {
+  height: 250px;
+  overflow: hidden;
+}
+
+.card-image-container {
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-body-container {
+  height: 100px;
+  text-align: center;
+}
+
+.card-width {
+  width: 18rem;
+}
+
+.plus-card-body {
+  height: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

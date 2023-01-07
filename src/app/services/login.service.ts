@@ -20,7 +20,6 @@ export class LoginService {
     }
 
   public onLoginSuccess = (res: string) => {
-    console.log(res)
     this.token = res
     this.userUpdated.emit()
     localStorage.setItem('token', JSON.stringify(res))
