@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light px-2">
-  <a class="navbar-brand" href="#">Games API</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-2">
+  <a class="navbar-brand" routerLink="/">Games API</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -15,6 +15,10 @@
         <a class="nav-link" routerLink="/allTags">Tags</a>
       </li>
     </ul>
+   <form class="d-flex mx-5" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-light" type="submit">Search</button>
+    </form>
   </div>
-  <button class="btn btn-success float-end" (click)="onClick()">{{ isLoggedIn ? 'Atsijungti' : 'Prisijungti'}}</button>
+  <button class="btn btn-light float-end" (click)="onClick()">{{ isLoggedIn ? 'Atsijungti' : 'Prisijungti'}}</button>
 </nav>

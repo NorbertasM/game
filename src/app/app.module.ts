@@ -15,6 +15,7 @@ import { NewGameComponent } from './components/new-game/new-game.component';
 import { NewAttributeComponent } from './components/new-attribute/new-attribute.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { SearchComponent } from './components/search/search.component';
 
 const routes: Routes = [
   {
@@ -62,7 +63,8 @@ const routes: Routes = [
     TagsComponent,
     LoginComponent,
     NewGameComponent,
-    NewAttributeComponent
+    NewAttributeComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
