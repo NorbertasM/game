@@ -14,7 +14,7 @@ export class SearchService {
     return this.http.get<SearchResult[]>(`${this.url}?value=${value}`)
   }
   
-  public typedSearch<T>(value: string, type: 'game' | 'genre' | 'tag') {
+  public typedSearch<T>(value: string, type: 'game' | 'genre' | 'tags') {
     return this.http.get<T[]>(`${this.url}?value=${value}&by=${type}`)
   }
 }

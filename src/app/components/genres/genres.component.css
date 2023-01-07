@@ -29,3 +29,13 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.custom-alert {
+  left: 50%;
+  position: fixed !important;
+  text-align: center;
+  top: 40px;
+  transform: translate(-50%, 0);
+  width: 500px;
+  z-index: 1;
+}
