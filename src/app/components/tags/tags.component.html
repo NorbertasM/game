@@ -1,4 +1,18 @@
 <div class="row">
+  <h1 class="text-center">TAGS</h1>
+
+  
+  <div class="col-24">
+    <form class="d-flex mb-3 w-25" role="search" (ngSubmit)="onSearch(f)" #f="ngForm">
+      <input class="form-control me-2" type="search" placeholder="Games search" name="value" ngModel required>
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+  </div>
+  <div *ngIf="error" class="custom-alert alert alert-danger alert-dismissible fade show " role="alert">
+    {{ error }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="clearError()"></button>
+  </div>
+
   <div class="col-md-4 mb-3">
     <div class="card custom-card card-width" (click)="addNewTag()">
         <div class="card-body plus-card-body">

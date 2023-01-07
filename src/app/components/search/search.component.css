@@ -3,26 +3,18 @@
   box-shadow: 0.5px 0.5px 0.5px 1px lightgray;
 }
 
-.card-image-container {
-  height: 200px;
+.game-card-image-container {
+  height: 160px;
   overflow: hidden;
 }
 
-.card-body-container {
-  height: 100px;
-  text-align: center;
+.game-card-body-container {
+  height: 250px;
+  overflow-y: auto;
 }
 
 .card-width {
   width: 18rem;
-}
-
-.plus-card-body {
-  height: 300px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .custom-alert {
@@ -33,4 +25,15 @@
   transform: translate(-50%, 0);
   width: 500px;
   z-index: 1;
+}
+
+
+.card-image-container {
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-body-container {
+  height: 100px;
+  text-align: center;
 }

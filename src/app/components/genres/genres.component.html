@@ -1,12 +1,26 @@
 <div class="row">
-  <div *ngIf="isLoggedIn" class="col-md-4 mb-3">
+  <h1 class="text-center">GENRES</h1>
+
+  
+  <div class="col-24">
+    <form class="d-flex mb-3 w-25" role="search" (ngSubmit)="onSearch(f)" #f="ngForm">
+      <input class="form-control me-2" type="search" placeholder="Games search" name="value" ngModel required>
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+  </div>
+  <div *ngIf="error" class="custom-alert alert alert-danger alert-dismissible fade show " role="alert">
+    {{ error }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="clearError()"></button>
+  </div>
+
+  <div *ngIf="isLoggedIn" class="col-md-4 mb-3 col-xl-3 col-sm-5">
     <div class="card custom-card card-width" (click)="onAddNewGenre()">
       <div class="card-body plus-card-body">
         <img src='https://www.freepnglogos.com/uploads/plus-icon/plus-icon-plus-svg-png-icon-download-1.png' style="width: 100px; height: 100px; margin: auto;"/>
       </div>
     </div>
   </div>
-  <div class="col-md-4 mb-3" *ngFor="let genre of genres">
+  <div class="col-md-4 mb-3 col-xl-3 col-sm-5" *ngFor="let genre of genres">
     <div class="card custom-card card-width" (click)="onClick(genre.id)">
       <div class="card-image-container">
         <img src={{genre.image}} width="350px"/>
