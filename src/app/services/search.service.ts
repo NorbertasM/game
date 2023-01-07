@@ -11,7 +11,7 @@ export class SearchService {
   constructor(private http: HttpClient) { }
 
   public generalSearch(value: string) {
-    return this.http.get<SearchResult[]>(`${this.url}?value=${value}`)
+    return this.http.get<SearchResult>(`${this.url}?value=${value}`)
   }
   
   public typedSearch<T>(value: string, type: 'game' | 'genre' | 'tags') {

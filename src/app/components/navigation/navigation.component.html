@@ -15,8 +15,8 @@
         <a class="nav-link" routerLink="/allTags">Tags</a>
       </li>
     </ul>
-   <form class="d-flex mx-5" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+   <form class="d-flex mx-5" role="search" (ngSubmit)="onSearch(f)" #f="ngForm">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="value" ngModel required>
       <button class="btn btn-outline-light" type="submit">Search</button>
     </form>
   </div>

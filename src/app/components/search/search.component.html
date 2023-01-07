@@ -1,1 +1,71 @@
-<p>search works!</p>
+<div class="row" *ngIf="data && data.games.length > 0">
+  <h1 class="text-center">GAMES</h1>
+  <div class="col-md-4 mb-3 col-xl-3 col-sm-5" *ngFor="let game of data.games">
+    <div class="card card-width">
+      <div class="game-card-image-container">
+        <img src={{game.image}} width="350px"/>
+      </div>
+      <div class="card-body game-card-body-container">
+        <div>
+          <h5 class="card-title">
+            {{ game.name }}
+          </h5>
+        </div>
+        <!-- <div class="row mt-1 border-top py-1">
+          <div class="border-bottom pb-2" *ngIf="genres?.[game.id] && genres[game.id].length > 0">
+            <h5>Genres</h5>
+            <div class="row">
+              <div class="col-auto" *ngFor="let genre of genres[game.id]">
+                <a class="link" [routerLink]="['/genre', genre.id]">{{ genre.name }}</a>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="tags?.[game.id] && tags[game.id].length > 0">
+            <h5>Tags</h5>
+            <div class="row">
+              <div class="col-auto" *ngFor="let tag of tags[game.id]">
+                <a class="link" [routerLink]="['/tag', tag.id]">{{ tag.name }}</a>
+              </div>
+            </div>
+          </div> -->
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="data && data.genres.length > 0">
+  <h1 class="text-center">GENRES</h1>
+  <div class="col-md-4 mb-3 col-xl-3 col-sm-5" *ngFor="let genre of data.genres">
+    <div class="card custom-card card-width" (click)="onGenreClick(genre.id)">
+      <div class="card-image-container">
+        <img src={{genre.image}} width="350px"/>
+      </div>
+      <div class="card-body card-body-container" style="background-color: white;">
+        <h3>
+          {{ genre.name }}
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="data && data.tags.length > 0">
+  <h1 class="text-center">TAGS</h1>
+  <div class="col-md-4 mb-3" *ngFor="let tag of data.tags">
+    <div class="card custom-card card-width" (click)="onTagClick(tag.id)">
+      <div class="card-image-container">
+        <img src={{tag.image}} width="100%"/>
+      </div>
+        <div class="card-body card-body-container">
+        <h3>
+          {{ tag.name }}
+        </h3>
+        <div>
+          <p *ngIf="tag.forChannel">For Channel</p>
+          <p *ngIf="tag.forGame">For Game</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

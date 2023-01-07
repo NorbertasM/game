@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -33,5 +34,11 @@ export class NavigationComponent implements OnInit {
       this.logout()
     } else {
       this.router.navigate(['/login'])    }
+  }
+
+  onSearch(f: NgForm) {
+    if (f.value.value) {
+      this.router.navigate(['/search', f.value.value])
+    }
   }
 }

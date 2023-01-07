@@ -31,6 +31,10 @@ const routes: Routes = [
     component: GamesComponent
   },
   {
+    path: 'search/:value',
+    component: SearchComponent
+  },
+  {
     path: 'allTags', 
     component: TagsComponent,
   },

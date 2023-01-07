@@ -3,11 +3,6 @@
   box-shadow: 0.5px 0.5px 0.5px 1px lightgray;
 }
 
-.crop {
-  height: 250px;
-  overflow: hidden;
-}
-
 .card-image-container {
   height: 200px;
   overflow: hidden;

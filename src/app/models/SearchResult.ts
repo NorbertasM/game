@@ -3,8 +3,8 @@ import { Tag } from "./Tag";
 
 export class SearchResult {
   constructor(
-    public games: Attribute,
-    public tags:  Tag,
-    public genre: Attribute
+    public games: Attribute[],
+    public tags:  Tag[],
+    public genres: Attribute[]
   ){}
 }

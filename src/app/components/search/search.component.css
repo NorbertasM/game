@@ -1,0 +1,39 @@
+.custom-card:hover {
+  cursor: pointer;
+  box-shadow: 0.5px 0.5px 0.5px 1px lightgray;
+}
+
+.game-card-image-container {
+  height: 160px;
+  overflow: hidden;
+}
+
+.game-card-body-container {
+  height: 250px;
+  overflow-y: auto;
+}
+
+.card-width {
+  width: 18rem;
+}
+
+.custom-alert {
+  left: 50%;
+  position: fixed !important;
+  text-align: center;
+  top: 40px;
+  transform: translate(-50%, 0);
+  width: 500px;
+  z-index: 1;
+}
+
+
+.card-image-container {
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-body-container {
+  height: 100px;
+  text-align: center;
+}
