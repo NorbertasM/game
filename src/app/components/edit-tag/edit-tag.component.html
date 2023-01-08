@@ -1,0 +1,37 @@
+<div class="col-md-6 offset-md-3 mt-5">
+  <div class="card">
+    <div class="card-header">Edit Tag</div>
+    <div class="div card-body" *ngIf="tag">
+      <!-- <div class="alert alert-danger" *ngIf="error !== ''">
+        {{ error }}
+      </div> -->
+      <form (ngSubmit)="updateTag(f)" #f="ngForm">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" name="name" id="name" class="form-control" ngModel required  [(ngModel)]="tag.name">
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Image Url</label>
+          <input type="text" name="image" id="image" class="form-control" ngModel required   [(ngModel)]="tag.image">
+        </div>
+        <div class="mb-3">
+          <div class="form-check">
+            <input class="form-check-input" name="forChannel" type="checkbox" ngModel checked   [(ngModel)]="tag.forChannel">
+            <label class="form-check-label" for="forChannel">
+              For Channel
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" name="forGame" type="checkbox" ngModel checked   [(ngModel)]="tag.forGame">
+            <label class="form-check-label" for="forGame">
+              For Game
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">
+          Confirm
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

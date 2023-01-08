@@ -60,4 +60,8 @@ export class TagsComponent implements OnInit {
   onClick(id: number) {
     this.router.navigate(['/tag', id])
   }
+
+  onEdit(id: number) {
+    this.router.navigate(['/editTag', id])
+  }
 }

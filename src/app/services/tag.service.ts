@@ -18,4 +18,8 @@ export class TagService {
   public getTag(tagId: number) {
     return this.http.get<Tag>(`${this.url}?id=${tagId}`)
   }
+  
+  public updateTag(data: Tag) {
+    return this.http.put<Tag>(this.url, data)
+  }
 }

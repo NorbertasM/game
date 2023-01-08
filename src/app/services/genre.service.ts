@@ -17,4 +17,8 @@ export class GenreService {
   public getGenre(genreId: number) {
     return this.http.get<Attribute>(`${this.url}?id=${genreId}`)
   }
+
+  public updateGenre(data: Attribute) {
+    return this.http.put<Attribute>(this.url, data)
+  }
 }

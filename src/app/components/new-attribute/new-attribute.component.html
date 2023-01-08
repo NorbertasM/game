@@ -1,6 +1,6 @@
 <div class="col-md-6 offset-md-3 mt-5">
   <div class="card">
-    <div class="card-header">Naujas atributas</div>
+    <div class="card-header">{{ isForTag ? "New Tag" : "New Attribute" }}</div>
     <div class="div card-body">
       <div class="alert alert-danger" *ngIf="error !== ''">
         {{ error }}

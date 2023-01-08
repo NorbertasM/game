@@ -9,7 +9,7 @@
 }
 
 .card-body-container {
-  height: 150px;
+  height: 180px;
   text-align: center;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .plus-card-body {
-  height: 350px;
+  height: 380px;
   text-align: center;
   display: flex;
   flex-direction: column;

@@ -28,12 +28,10 @@ export class NewGameComponent implements OnInit {
     private tagService: TagService
     ) {
       genreService.getGenres().subscribe(res => {
-        console.log(res)
         this.genres = res
       })
       
       tagService.getTags().subscribe(res => {
-        console.log(res)
         this.tags = res
       })
 
@@ -44,7 +42,6 @@ export class NewGameComponent implements OnInit {
 
 
   private afterSuccess = (res: any) => {
-    console.log(res)
     this.router.navigate(['/'])
   }
 
@@ -70,7 +67,6 @@ afterError() {
 }
 
   public onSubmit(f: NgForm) {
-    console.log(f.value, this.addedGenres, this.addedTags)
     const game = new NewGame(f.value.name, f.value.image, this.addedGenres, this.addedTags)
 
     this.game.addGame(game).subscribe({
