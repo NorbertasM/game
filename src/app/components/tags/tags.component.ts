@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Tag } from 'src/app/models/Tag';
+import { LoginService } from 'src/app/services/login.service';
 import { SearchService } from 'src/app/services/search.service';
 import { TagService } from 'src/app/services/tag.service';
 
@@ -13,12 +14,20 @@ import { TagService } from 'src/app/services/tag.service';
 export class TagsComponent implements OnInit {
   public tags: Tag[] = []
   public error: string | undefined
+  public isLoggedIn = false
 
+  public afterUserUpdated = () => {
+    this.isLoggedIn = this.login.isLoggedIn()
+  }
+  
   constructor(
     private router: Router,
     private tagsService: TagService,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private login: LoginService,
   ) {
+    this.afterUserUpdated()
+    this.login.userUpdated.subscribe(this.afterUserUpdated)  
     this.loadData()
   }
 

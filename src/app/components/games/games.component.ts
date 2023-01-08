@@ -141,4 +141,10 @@ export class GamesComponent implements OnInit {
   onEdit(id: number) {
     this.router.navigate(['/editGame', id])
   }
+
+  createRange(number: number){
+    // return new Array(number);
+    return new Array(number).fill(0)
+      .map((n, index) => index + 1);
+  }
 }

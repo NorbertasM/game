@@ -34,3 +34,8 @@
   width: 500px;
   z-index: 1;
 }
+
+.custom-pagination {
+  width: 80vw;
+  overflow-x: auto;
+}

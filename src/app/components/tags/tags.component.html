@@ -33,7 +33,7 @@
           <p *ngIf="tag.forChannel">For Channel</p>
           <p *ngIf="tag.forGame">For Game</p>
           <div class="row">
-            <div class="col">
+            <div class="col"  *ngIf="isLoggedIn">
               <button class="btn btn-outline-primary" (click)="onEdit(tag.id)">Edit</button>
             </div>
             <div class="col">
