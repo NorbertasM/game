@@ -13,6 +13,9 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class GamesComponent implements OnInit {
   public games: Attribute[] = []
+  public page = 0
+  public count = 0
+  public pagesCount = 0
   public tags: Record<number, Attribute[]> = []
   public genres: Record<number, Attribute[]> = []
   public loading: boolean = true
@@ -37,7 +40,7 @@ export class GamesComponent implements OnInit {
       const genreId = this.route.snapshot.params['genreId']
       const tagId = this.route.snapshot.params['tagId']
 
-     this.loadData(genreId, tagId)
+     this.loadData(genreId, tagId, this.page)
   }
 
   ngOnInit(): void {
@@ -63,7 +66,7 @@ export class GamesComponent implements OnInit {
     } else {
       const genreId = this.route.snapshot.params['genreId']
       const tagId = this.route.snapshot.params['tagId']
-      this.loadData(genreId, tagId)
+      this.loadData(genreId, tagId, this.page)
     }
   }
 
@@ -75,10 +78,12 @@ export class GamesComponent implements OnInit {
     this.router.navigate(['/addGame'])
   }
 
-  private loadData(genreId: number, tagId: number) {
-    this.gameService.getGames(genreId, tagId).subscribe(res => {
+  private loadData(genreId: number, tagId: number, page: number) {
+    this.gameService.getGames(genreId, tagId, page).subscribe(res => {
       if (res) {
-        this.onFetchGames(res)
+        this.count = res.count
+        this.pagesCount = Math.floor(res.count / 19)
+        this.onFetchGames(res.games)
       }
       this.loading = false
     })
@@ -99,5 +104,36 @@ export class GamesComponent implements OnInit {
         }
       })
     })
+  }
+
+  onNextPage() {
+    this.page += 1
+    const genreId = this.route.snapshot.params['genreId']
+    const tagId = this.route.snapshot.params['tagId']
+    
+    this.loadData(genreId, tagId, this.page)
+    window.scrollTo(0, 0);
+  }
+  
+  onPreviousPage() {
+    if (this.page > 0) {
+      this.page -= 1
+      const genreId = this.route.snapshot.params['genreId']
+      const tagId = this.route.snapshot.params['tagId']
+      
+      this.loadData(genreId, tagId, this.page)
+      window.scrollTo(0, 0);
+    }
+  }
+  
+  onPageClick(page: number) {
+    if (page >= 0) {
+      this.page = page
+      const genreId = this.route.snapshot.params['genreId']
+      const tagId = this.route.snapshot.params['tagId']
+      
+      this.loadData(genreId, tagId, this.page)
+      window.scrollTo(0, 0);
+    }
   }
 }
