@@ -4,7 +4,7 @@
   
   <div class="col-24">
     <form class="d-flex mb-3 w-25" role="search" (ngSubmit)="onSearch(f)" #f="ngForm">
-      <input class="form-control me-2" type="search" placeholder="Games search" name="value" ngModel required>
+      <input class="form-control me-2" type="search" placeholder="Genres search" name="value" ngModel required>
       <button class="btn btn-primary" type="submit">Search</button>
     </form>
   </div>
@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="col-md-4 mb-3 col-xl-3 col-sm-5" *ngFor="let genre of genres">
-    <div class="card custom-card card-width" (click)="onClick(genre.id)">
+    <div class="card card-width" >
       <div class="card-image-container">
         <img src={{genre.image}} width="350px"/>
       </div>
@@ -29,6 +29,14 @@
         <h3>
           {{ genre.name }}
         </h3>
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-outline-primary" (click)="onEdit(genre.id)">Edit</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-primary" (click)="onClick(genre.id)">Games</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

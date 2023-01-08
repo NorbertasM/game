@@ -17,6 +17,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { SearchComponent } from './components/search/search.component';
 import { EditTagComponent } from './components/edit-tag/edit-tag.component';
+import { EditGenreComponent } from './components/edit-genre/edit-genre.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'genre/:genreId',
     component: GamesComponent
+  },
+  {
+    path: 'editGenre/:id',
+    component: EditGenreComponent
   },
   {
     path: 'search/:value',
@@ -75,6 +80,7 @@ const routes: Routes = [
     NewAttributeComponent,
     SearchComponent,
     EditTagComponent,
+    EditGenreComponent,
   ],
   imports: [
     BrowserModule,
