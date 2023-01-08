@@ -136,4 +136,9 @@ export class GamesComponent implements OnInit {
       window.scrollTo(0, 0);
     }
   }
+
+  
+  onEdit(id: number) {
+    this.router.navigate(['/editGame', id])
+  }
 }

@@ -18,6 +18,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { SearchComponent } from './components/search/search.component';
 import { EditTagComponent } from './components/edit-tag/edit-tag.component';
 import { EditGenreComponent } from './components/edit-genre/edit-genre.component';
+import { EditGameComponent } from './components/edit-game/edit-game.component';
 
 const routes: Routes = [
   {
@@ -34,7 +35,8 @@ const routes: Routes = [
   },
   {
     path: 'editGenre/:id',
-    component: EditGenreComponent
+    component: EditGenreComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'search/:value',
@@ -47,6 +49,7 @@ const routes: Routes = [
   {
     path: 'editTag/:id', 
     component: EditTagComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'tag/:tagId',
@@ -59,6 +62,11 @@ const routes: Routes = [
   {
     path: 'addGame',
     component: NewGameComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'editGame/:id',
+    component: EditGameComponent,
     canActivate: [AuthGuard],
   },
   {
@@ -81,6 +89,7 @@ const routes: Routes = [
     SearchComponent,
     EditTagComponent,
     EditGenreComponent,
+    EditGameComponent,
   ],
   imports: [
     BrowserModule,
