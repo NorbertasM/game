@@ -5,6 +5,7 @@ import { Attribute } from '../models/Attribute';
 import { Game } from '../models/Game';
 import { GameGenre } from '../models/GameGenre';
 import { GameTag } from '../models/GameTag';
+import { GetGameRes } from '../models/GetGameRes';
 import { NewGame } from '../models/NewGame';
 
 @Injectable({
@@ -18,13 +19,13 @@ export class GameService {
   constructor(private http: HttpClient) { }
 
   
-  public getGames(genreId?: number, tagId?: number) {
+  public getGames(genreId: number | undefined, tagId: number | undefined, page: number) {
     if (genreId) {
-      return this.http.get<Attribute[]>(`${this.gameUrl}?genreId=${genreId}`)
+      return this.http.get<GetGameRes>(`${this.gameUrl}?genreId=${genreId}&step=19&page=${page}`)
     } else if (tagId) {
-      return this.http.get<Attribute[]>(`${this.gameUrl}?tagId=${tagId}`)
+      return this.http.get<GetGameRes>(`${this.gameUrl}?tagId=${tagId}&step=19&page=${page}`)
     } else {
-      return this.http.get<Attribute[]>(`${this.gameUrl}`)
+      return this.http.get<GetGameRes>(`${this.gameUrl}?step=19&page=${page}`)
     }
   }
 
