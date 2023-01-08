@@ -16,6 +16,7 @@ import { NewAttributeComponent } from './components/new-attribute/new-attribute.
 import { AuthGuard } from './guards/auth.guard';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { SearchComponent } from './components/search/search.component';
+import { EditTagComponent } from './components/edit-tag/edit-tag.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'allTags', 
     component: TagsComponent,
+  },
+  {
+    path: 'editTag/:id', 
+    component: EditTagComponent,
   },
   {
     path: 'tag/:tagId',
@@ -69,6 +74,7 @@ const routes: Routes = [
     NewGameComponent,
     NewAttributeComponent,
     SearchComponent,
+    EditTagComponent,
   ],
   imports: [
     BrowserModule,

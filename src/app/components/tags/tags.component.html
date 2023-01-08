@@ -4,7 +4,7 @@
   
   <div class="col-24">
     <form class="d-flex mb-3 w-25" role="search" (ngSubmit)="onSearch(f)" #f="ngForm">
-      <input class="form-control me-2" type="search" placeholder="Games search" name="value" ngModel required>
+      <input class="form-control me-2" type="search" placeholder="Tags search" name="value" ngModel required>
       <button class="btn btn-primary" type="submit">Search</button>
     </form>
   </div>
@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="col-md-4 mb-3" *ngFor="let tag of tags">
-    <div class="card custom-card card-width" (click)="onClick(tag.id)">
+    <div class="card card-width">
       <div class="card-image-container">
         <img src={{tag.image}} width="100%"/>
       </div>
@@ -32,6 +32,14 @@
         <div>
           <p *ngIf="tag.forChannel">For Channel</p>
           <p *ngIf="tag.forGame">For Game</p>
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-outline-primary" (click)="onEdit(tag.id)">Edit</button>
+            </div>
+            <div class="col">
+              <button class="btn btn-primary" (click)="onClick(tag.id)">Games</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
